@@ -1,47 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自己紹介</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-        }
-        main {
-            margin: 20px;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>自己紹介</h1>
-    </header>
-    <main>
-        <h2>こんにちは！</h2>
-        <p>私は [名前] です。趣味は [趣味] で、[職業/学生] をしています。</p>
-        <p>よろしくお願いします！</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 自己紹介サイト</p>
-    </footer>
-</body>
-</html>
+import random
+
+def roll_dice():
+    dice = [random.randint(1, 6) for _ in range(3)]  # サイコロを3回振る
+    return dice
+
+# サイコロを振る
+result = roll_dice()
+print("サイコロの結果:", result)
