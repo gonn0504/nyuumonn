@@ -1,9 +1,105 @@
-import random
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あなたの名前の自己紹介ページ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* フォントをページ全体に適用 */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* プロフィール画像のスタイル調整 */
+        .profile-image-container {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem; /* md:p-8 と同じ */
+        }
+        .profile-image {
+            width: 12rem; /* h-48, w-48 (192px) */
+            height: 12rem;
+            object-fit: cover;
+            border-radius: 9999px; /* fully rounded */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .profile-image-container {
+                 padding: 0; /* mdではpaddingをリセット */
+                 width: 12rem; /* md:w-48 */
+                 height: auto; /* mdでは高さを自動に */
+                 align-items: center; /* Change from flex-start to center */
+            }
+             .profile-image {
+                border-radius: 0.75rem; /* md:rounded-l-xl */
+                border-top-right-radius: 0; /* md:rounded-t-none */
+                border-bottom-right-radius: 0;
+                width: 12rem; /* md:w-48 */
+                height: 100%; /* mdでは高さを親要素に合わせる */
+                box-shadow: none; /* mdではシャドウをなくす */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-6">
 
-def roll_dice():
-    dice = [random.randint(1, 6) for _ in range(3)]  # サイコロを3回振る
-    return dice
+    <div class="container mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-3xl my-10">
+        <div class="md:flex">
+            <div class="profile-image-container">
+                <img class="profile-image" src="https://placehold.co/192x192/E2E8F0/4A5568?text=Profile" alt="プロフィール画像">
+            </div>
 
-# サイコロを振る
-result = roll_dice()
-print("サイコロの結果:", result)
+            <div class="p-8 flex flex-col justify-center">
+                <div class="uppercase tracking-wide text-sm text-indigo-600 font-semibold">代表取締役</div>
+                <h1 class="block mt-1 text-2xl leading-tight font-bold text-gray-900">あなたの名前</h1>
+                <p class="mt-4 text-gray-600 leading-relaxed">
+                    はじめまして、畠野佑悟（Yuugo Tomino）です。
+日々、仲間と新しいことに挑戦したり、チームでの活動を楽しんでいる学生です。
+
+現在は、アマチュア野球チーム「F***in' Boys」の結成や、学校のゼミ活動を通じて、人と協力しながら何かを創ることの面白さを実感しています。野球チームでは、月1回の試合に向けてメンバーと和気あいあいと活動しており、ゆくゆくは初心者向けのリーグにも参加を検討中です。
+
+また、個人的な関心として、GitHub Copilotの活用やWeb技術の学習にも取り組んでいます。効率的なコーディングや、チーム内への技術導入を視野に入れて、年間計画を立てながら日々のタスクを進めています。
+
+最近は、「サッカーの楽しみ方を広める」ことをテーマにしたレポートにも挑戦し、自宅での観戦スタイルの工夫や、Jリーグの魅力を深掘り中です。
+                </p>
+
+                <div class="mt-6">
+                    <h2 class="text-xl font-semibold text-gray-900">スキル・専門分野</h2>
+                    <ul id="skill-list" class="list-disc list-inside mt-3 text-gray-700 leading-relaxed hidden">
+                        <li>経営戦略立案</li>
+                        <li>事業開発</li>
+                        <li>プロダクトマネジメント</li>
+                        <li>（チームで何かを作り上げること
+
+初心者の目線で物事を考えること
+
+技術やツールを「わかりやすく」活用する方法を探ること
+
+気軽に人とつながれる仕組みづくり）</li>
+                    </ul>
+                    <button id="toggle-skills-btn" class="mt-4 px-6 py-3 bg-indigo-600 text-white text-base font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                        スキル・専門分野を表示
+                    </button>
+                </div>
+
+                <div class="mt-8">
+                    <h2 class="text-xl font-semibold text-gray-900">連絡先</h2>
+                    <p class="mt-3 text-gray-700 leading-relaxed">
+                        GitHub: <a href="https://github.com/あなたのGitHubユーザー名" class="text-blue-600 hover:underline font-medium" target="_blank">あなたのGitHubユーザー名</a><br>
+                        Email: <a href="mailto:あなたのメールアドレス" class="text-blue-600 hover:underline font-medium">あなたのメールアドレス</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-gray-500 text-sm mt-12">
+        <p>&copy; 2023 あなたの名前. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
